@@ -1,0 +1,37 @@
+body {
+    box-sizing: border-box;
+    font-family: 'Merriweather', serif;
+}
+
+header {
+    background-color: #f0bc2a;
+    text-shadow: 2px 2px hsl(0deg 0% 0% / 20%);
+    color: black;
+}
+
+.container {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    background-image: url(/media/kingdomcatanddogrescuelogo.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.nav-list {
+    list-style-type: none;
+}
+
+.nav-item {
+    list-style: none;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}

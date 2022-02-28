@@ -12,10 +12,28 @@
 
     <!-- Font Awesome Import-->
     <script src="https://kit.fontawesome.com/f0ca44b893.js" crossorigin="anonymous"></script>
-    
+
     <title>Kerry Cat And Dog Rescue</title>
 </head>
 <body>
+    <header>
+        <div class="container">
+            <div class="logo"></div>
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#">Home</a></li>
+                    <li class="nav-item"><a href="#">Cats</a></li>
+                    <li class="nav-item"><a href="#">Dogs</a></li>
+                    <li class="nav-item"><a href="#">Support</a></li>
+                    <li class="nav-item"><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    {{ block content }}
+    {{ endblock }}
+    
     
 </body>
 </html>
