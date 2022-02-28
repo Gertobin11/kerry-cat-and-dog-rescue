@@ -1,1 +1,1 @@
-web: gunicorn kerry-cat-and-dog-rescue.wsgi
+web: gunicorn kerrycatanddogrescue.wsgi
