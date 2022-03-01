@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +10,8 @@
     <!-- Google Font Import-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Merriweather+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Merriweather+Sans&display=swap"
+        rel="stylesheet">
 
     <!-- Font Awesome Import-->
     <script src="https://kit.fontawesome.com/f0ca44b893.js" crossorigin="anonymous"></script>
@@ -17,19 +19,41 @@
     <!-- Custom CSS Import -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
+    <!-- Custom JavaScript -->
+    <script defer src="{% static 'js/script.js' %}"></script>
+
     <title>Kerry Cat And Dog Rescue</title>
 </head>
+
 <body>
     <header>
         <div class="container">
-            <div class="logo"></div>
+            <a href="#" class="logo-div">
+                <img src="/media/kingdomcatanddogrescuelogo_ccexpress (1).png" class="logo">
+                <h1 class="title">Kingdom <span>Cat & Dog</span> Rescue</h1>
+            </a>
             <nav>
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="#">Home</a></li>
-                    <li class="nav-item"><a href="#">Cats</a></li>
-                    <li class="nav-item"><a href="#">Dogs</a></li>
-                    <li class="nav-item"><a href="#">Support</a></li>
-                    <li class="nav-item"><a href="#">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link-top" href="#">Home</a></li>
+                    <li id="cats-link" class="nav-link-top">Cats <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        <ul id="cats-list">
+                            <li>Cats for Adoption</li>
+                            <li>Neutering</li>
+                            <li>TNR</li>
+                            <li>Adoption Questionaire</li>
+                        </ul>
+                    </li>
+                    <li id="dogs-link" class="nav-link-top">Dogs <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        <ul id="dogs-list">
+                            <li>Dogs for Adoption</li>
+                            <li>Neutering</li>
+                            <li>Adoption Questionaire</li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link-top" href="#">Support</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link-top" href="#">Contact</a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -37,7 +61,8 @@
 
     {% block content %}
     {% endblock %}
-    
-    
+
+
 </body>
+
 </html>

@@ -1,5 +1,10 @@
-body {
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+}
+
+body {
     font-family: 'Merriweather', serif;
 }
 
@@ -7,6 +12,24 @@ header {
     background-color: #f0bc2a;
     text-shadow: 2px 2px hsl(0deg 0% 0% / 20%);
     color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: black;
+}
+
+.title span {
+    color: #c72b2d;
+}
+
+.logo-div {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }
 
 .container {
@@ -14,24 +37,122 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 4rem;
+    position: relative;
 }
 
 .logo {
-    background-image: url(/media/kingdomcatanddogrescuelogo.jpg);
-    background-repeat: no-repeat;
-    background-size: contain;
+    height: 5rem;
 }
 
 .nav-list {
-    list-style-type: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    height: 100%
 }
 
 .nav-item {
     list-style: none;
 }
 
-.nav-item a {
+.nav-link {
     text-decoration: none;
     color: black;
     display: block;
+    width: 100%;
+    padding: 0 .7rem 0 .7rem;
+    cursor: pointer;
+}
+
+.nav-link-top {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    gap: .35rem;
+    width: 100%;
+    padding: 1.38rem;
+    cursor: pointer;
+}
+
+
+.nav-link-top:hover {
+    background: #c72b2d;
+    color: white;
+}
+
+
+#cats-list {
+    top: 100%;
+    position: absolute;
+    list-style: none;
+    background: #f0bc2a;
+}
+
+#cats-list li {
+    text-decoration: none;
+    color: black;
+    padding: .5rem;
+    cursor: pointer;
+}
+
+#cats-list li:hover {
+    background: #c72b2d;
+    color: white;
+}
+
+#dogs-list {
+    top: 100%;
+    position: absolute;
+    list-style: none;
+    background: #f0bc2a;
+}
+
+#dogs-list li {
+    text-decoration: none;
+    color: black;
+    padding: .5rem;
+    cursor: pointer;
+}
+
+#dogs-list li:hover {
+    background: #c72b2d;
+    color: white;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+@keyframes rotation {
+    50% {
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: rotate(359deg);
+    }
+}
+
+.logo-rotate {
+    animation: rotation 3s linear;
+}
+
+@keyframes drop {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(7px)
+    }
+}
+
+.drop {
+    animation: drop .8s forwards;
 }
