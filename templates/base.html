@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +13,9 @@
 
     <!-- Font Awesome Import-->
     <script src="https://kit.fontawesome.com/f0ca44b893.js" crossorigin="anonymous"></script>
+
+    <!-- Custom CSS Import -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <title>Kerry Cat And Dog Rescue</title>
 </head>
@@ -31,8 +35,8 @@
         </div>
     </header>
 
-    {{ block content }}
-    {{ endblock }}
+    {% block content %}
+    {% endblock %}
     
     
 </body>
