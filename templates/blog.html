@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="post-section overlay">
+    <h1>Blog Posts <i class="fa-solid fa-book-heart"></i></h1>
+    <div class="post-div">
+        {% for post in post_list %}
+        <div class="card">
+            <div class="card__header">
+
+                <img src="{{ MEDIA_URL }}kittens-3535404_640.jpg" alt="post__image" class="card__image" width="600">
+            </div>
+            <div class="card__body">
+                <span class="tag tag-blue">Technology</span>
+                <h4>{{ post.title }}</h4>
+                <p>{{ post.excerpt }}</p>
+            </div>
+            <div class="card__footer">
+                <div class="user">
+                    <div class="user__info">
+                        <h5>{{ post.author }}</h5>
+                        <small>{{ post.created_on }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</section>
+{% endblock %}
