@@ -5,35 +5,55 @@ let dogList = document.getElementById("dogs-list")
 let logoDiv = document.querySelector(".logo-div")
 let logo = document.querySelector(".logo")
 let downIcons = Array.from(document.getElementsByClassName("fa"))
-console.log(downIcons)
-console.log(logo)
+let dropDownItems = Array.from(document.querySelectorAll(".drop-list"))
 catList.classList.add("hide");
 dogList.classList.add("hide");
 
+const showDropDownItems = () => {
+    dropDownItems.forEach(item => {
+        item.classList.add("show-opacity")
+    })
+}
 
-catList.addEventListener("mouseleave", function (event) {
+const hideDropDownItems = () => {
+    dropDownItems.forEach(item => {
+        item.classList.remove("show-opacity")
+    })
+}
+
+dropDownItems.forEach(item => {
+    item.classList.add("hide-opacity")
+})
+
+hideDropDownItems()
+
+
+catsLink.addEventListener("mouseleave", function (event) {
     console.log('listeneradded')
     catList.classList.remove("show")
     catList.classList.add("hide")
+    hideDropDownItems()
 })
 
-catsLink.addEventListener("click", function (event) {
-    catList.classList.add("show")
-    console.log('show')
+catsLink.addEventListener("mouseenter", function (event) {
+    catList.classList.add("show", "show-ul")
+    setTimeout(showDropDownItems, 200)
 })
 
-dogList.addEventListener("mouseleave", function (event) {
+dogsLink.addEventListener("mouseleave", function (event) {
     console.log('listeneradded')
     dogList.classList.remove("show")
     dogList.classList.add("hide")
+    hideDropDownItems()
 })
 
-dogsLink.addEventListener("click", function (event) {
-    dogList.classList.add("show")
+dogsLink.addEventListener("mouseenter", function (event) {
+    dogList.classList.add("show", "show-ul")
     console.log('show')
+    setTimeout(showDropDownItems, 200)
 })
 
-logoDiv.addEventListener("mouseenter", function(event) {
+logoDiv.addEventListener("mouseenter", function (event) {
     logo.classList.add('logo-rotate')
 })
 
@@ -41,7 +61,7 @@ logoDiv.addEventListener("mouseleave", function (event) {
     logo.classList.remove('logo-rotate')
 })
 
-catsLink.addEventListener("mouseenter", function(event) {
+catsLink.addEventListener("mouseenter", function (event) {
     downIcons[0].classList.add("drop")
 })
 

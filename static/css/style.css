@@ -153,15 +153,46 @@ nav {
     }
 }
 
+@keyframes show-ul {
+    0% {
+        transform: scale(1, 0);
+    }
+    100% {
+        transform: scale(1)
+    }
+}
+
+@keyframes show-links {
+    0% {
+        opacity: 0
+    }
+    100%{
+        opacity: 1
+    }
+}
+
+.show-ul {
+    animation: show-ul .6s ease-in-out;
+    transform-origin: top;
+}
+
 .drop {
     animation: drop .8s forwards;
+}
+
+.show-opacity {
+    animation: show-links .8s forwards;
+}
+
+.hide-opacity {
+    opacity: 0;
 }
 
 /* blog css */ 
 
 .post-section {
     display: block;
-    background-image: url('../../media/pexels-petra-vajdova-7341095.jpg');
+    background-image: url('../../media/pexels-luca-finardi-7277649.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
@@ -171,18 +202,18 @@ nav {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 8rem;
     width: 100%;
 }
 
 .post-section h1 {
-    font-family: 'Merriweather Sans',
+    font-family: 'Merriweather',
     sans-serif;
     font-size: 3.5rem;
     color: white;
     text-align: center;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 6rem;
+    padding-bottom: 8rem;
     text-shadow: 2px 2px hsl(0deg 0% 0% / 20%);
 }
 
@@ -192,7 +223,7 @@ nav {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-img {
+.card img {
     max-width: 100%;
     display: block;
     object-fit: cover;
@@ -203,7 +234,7 @@ img {
     flex-direction: column;
     width: clamp(20rem, calc(20rem + 2vw), 22rem);
     overflow: hidden;
-    box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 .8rem 1.5rem rgba(0, 0, 0, 0.4);
     border-radius: 1em;
     background: #ECE9E6;
     background: linear-gradient(to right, #FFFFFF, #ECE9E6);
@@ -231,17 +262,6 @@ img {
     margin-left: .5em;
 }
 
-.tag-blue {
-    background: #56CCF2;
-    background: linear-gradient(to bottom, #2F80ED, #56CCF2);
-    color: #fafafa;
-}
-
-.tag-brown {
-    background: #D1913C;
-    background: linear-gradient(to bottom, #FFD194, #D1913C);
-    color: #fafafa;
-}
 
 .tag-red {
     background: #cb2d3e;
