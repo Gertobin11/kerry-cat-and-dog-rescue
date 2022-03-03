@@ -131,6 +131,12 @@ nav {
     display: block;
 }
 
+.logo-rotate {
+    animation: rotation 3s linear;
+}
+
+/* Animations applied through JavaScript */
+
 @keyframes rotation {
     50% {
         transform: rotate(180deg);
@@ -138,10 +144,6 @@ nav {
     100%{
         transform: rotate(359deg);
     }
-}
-
-.logo-rotate {
-    animation: rotation 3s linear;
 }
 
 @keyframes drop {
@@ -223,6 +225,8 @@ nav {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
+/* Insired by this code pen https://codepen.io/lyon-etyo/pen/OJmyMGd */
+
 .card img {
     max-width: 100%;
     display: block;
@@ -238,10 +242,7 @@ nav {
     border-radius: 1em;
     background: #ECE9E6;
     background: linear-gradient(to right, #FFFFFF, #ECE9E6);
-
 }
-
-
 
 .card__body {
     padding: 1rem;
