@@ -1,4 +1,6 @@
-*, *::after, *::before {
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -124,11 +126,11 @@ nav {
 }
 
 .hide {
-    display: none;
+    display: none !important;
 }
 
 .show {
-    display: block;
+    display: block !important;
 }
 
 .logo-rotate {
@@ -141,7 +143,8 @@ nav {
     50% {
         transform: rotate(180deg);
     }
-    100%{
+
+    100% {
         transform: rotate(359deg);
     }
 }
@@ -150,6 +153,7 @@ nav {
     0% {
         transform: translateY(0px);
     }
+
     100% {
         transform: translateY(7px)
     }
@@ -159,6 +163,7 @@ nav {
     0% {
         transform: scale(1, 0);
     }
+
     100% {
         transform: scale(1)
     }
@@ -168,7 +173,8 @@ nav {
     0% {
         opacity: 0
     }
-    100%{
+
+    100% {
         opacity: 1
     }
 }
@@ -176,6 +182,7 @@ nav {
 .show-ul {
     animation: show-ul .6s ease-in-out;
     transform-origin: top;
+    z-index: 9999;
 }
 
 .drop {
@@ -190,38 +197,121 @@ nav {
     opacity: 0;
 }
 
-/* blog css */ 
+/* Hamburger Nav stylings inspired from https://www.youtube.com/watch?v=dIyVTjJAkLw */
+
+.menu-btn {
+    left: 0;
+    position: relative;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    /* border: 3px solid #fff; */
+}
+
+.menu-btn__burger {
+    width: 40px;
+    height: 4px;
+    background: #c72b2d;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255, 101, 47, .2);
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn__burger::before,
+.menu-btn__burger::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 4px;
+    background: #c72b2d;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255, 101, 47, .2);
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn__burger::before {
+    transform: translateY(-12px);
+}
+
+.menu-btn__burger::after {
+    transform: translateY(12px);
+}
+
+/* ANIMATION */
+.menu-btn.open .menu-btn__burger {
+    transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+}
+
+.menu-btn.open .menu-btn__burger::before {
+    transform: rotate(45deg) translate(35px, -35px);
+}
+
+.menu-btn.open .menu-btn__burger::after {
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+
+/* blog css */
 
 .post-section {
-    display: block;
-    background-image: url('../../media/pexels-luca-finardi-7277649.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    flex-grow: 1;
+}
+
+.post-div::after {
+    content: "";
+    background: rgb(240, 188, 42);
+    background: linear-gradient(248deg, rgba(240, 188, 42, 1) 62%, rgba(199, 43, 45, 1) 76%, rgba(240, 188, 42, 1) 98%);
+    clip-path: polygon(0 0, 75% 0, 100% 100%, 25% 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: -99;
 }
 
 .post-div {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 8rem;
+    gap: 5rem;
     width: 100%;
+    padding-top: 3rem;
+    z-index: 9;
+    position: relative;
 }
 
-.post-section h1 {
-    font-family: 'Merriweather',
-    sans-serif;
-    font-size: 3.5rem;
-    color: white;
+
+.post-header {
     text-align: center;
     padding-top: 6rem;
     padding-bottom: 8rem;
+    background-image: url(../../media/pexels-luca-finardi-7277649.jpg);
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -11rem;
+}
+
+.post-header h1 {
+    font-family: 'Merriweather',
+        sans-serif;
+    font-size: 3.5rem;
+    color: white;
     text-shadow: 2px 2px hsl(0deg 0% 0% / 20%);
 }
 
 .overlay {
     height: 100%;
-    width :100%;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -292,4 +382,191 @@ nav {
 
 .user__info>small {
     color: #666;
+}
+
+.pagination {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding-bottom: 2rem;
+}
+
+.step-links {
+    color: black
+}
+
+.step-links a {
+    text-decoration: none;
+    color: white
+}
+
+.step-links a:hover,
+.step-links a:active,
+.step-links a:focus {
+    color: #c72b2d;
+}
+
+.half-height-post {
+    min-height: 105vh;
+}
+
+.half-height-background {
+    min-height: 100vh;
+}
+
+/* Footer styles */
+
+footer {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: white;
+    flex-wrap: wrap;
+    padding: .7rem;
+    gap: 1.5rem;
+}
+
+.address {
+    min-width: 30%;
+}
+
+.address-list {
+    list-style: none;
+}
+
+.address-list h5 {
+    font-size: 1.1rem;
+    color: #c72b2d;
+}
+
+.address-list li {
+    text-decoration: none;
+    font-size: .9rem;
+    color: whitesmoke;
+}
+
+.map {
+    min-width: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.map h5 {
+    font-size: 1.1rem;
+    color: #c72b2d;
+}
+
+.mapouter {
+    position: relative;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    height: 100%;
+    width: 100%;
+}
+
+.donate {
+    width: 30vw;
+    max-height: 223px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} 
+.donate h5 {
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    color: #c72b2d;
+}
+
+.donate a img {
+    height: 180px;
+}
+
+.donate-link {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 879px) {
+    .nav-list {
+        height: 100%;
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        z-index: 999;
+        width: 100%;
+    }
+
+    .nav-link-top {
+        background-color: #f0bc2a;
+        color: #ECE9E6;
+        position: relative;
+    }
+
+
+    .menu-btn {
+        display: flex;
+        width: auto;
+        justify-content: flex-start;
+    }
+
+    .logo-div {
+        margin-left: 40px;
+        position: absolute;
+        right: 0;
+    }
+
+    .title {
+        font-size: 1.3rem;
+    }
+
+    .container {
+        width: 95%;
+        display: flex;
+    }
+
+    .post-div {
+        gap: 2rem;
+    }
+
+    .post-header {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        background-position: 0;
+    }
+
+    .post-header h1 {
+        font-size: 2.5rem;
+    }
+
+}
+
+
+@media only screen and (max-width: 500px) {
+
+    .logo-div {
+        margin-left: 45%;
+        position: absolute;
+        right: 0;
+    }
+
+    .title {
+        font-size: 1rem;
+    }
 }
