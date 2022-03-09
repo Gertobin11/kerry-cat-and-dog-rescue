@@ -37,6 +37,9 @@ ALLOWED_HOSTS = ["kerry-cat-and-dog-rescue.herokuapp.com", "localhost"]
 
 X_FRAME_OPTIONS = 'SAMEORIGION'
 
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -46,6 +49,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
@@ -100,6 +106,14 @@ else:
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
+
+AUTHENTICATION_BACKENDS = (
+    'allauth.account.auth_backends.AuthenticationBackend',
+    'django.contrib.auth.backends.ModelBackend'
+)
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'the_vinyl_hub@mail.com'
 
 
 # Password validation

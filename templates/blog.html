@@ -7,34 +7,36 @@
     </div>
     <div class="post-div">
         {% for post in post_list %}
-        <div class="card">
-            <div class="card__header">
-                {% if "placeholder" in post.featured_image.url %}
-                <img src="{{ MEDIA_URL }}kittens-3535404_640.jpg" alt="post__image" class="card__image">
-                {% else %}
-                <img src="{{ post.featured_image.url }}" alt="post__image" class="card__image">
-                {% endif %}
-            </div>
-            <div class="card__body">
-                <span class="tag tag-red">{{ post.category }}</span>
-                <h4>{{ post.title }}</h4>
-                <p>{{ post.excerpt }}</p>
-            </div>
-            <div class="card__footer">
-                <div class="user">
-                    <div class="user__info">
-                        <h5>{{ post.author }}</h5>
-                        <small>{{ post.created_on }} <i class="far fa-heart"></i>
-                            {% if post.number_of_likes == None %}
+        <a class="post-link" href="{% url 'blog_details' post.slug %}">
+            <div class="card">
+                <div class="card__header">
+                    {% if "placeholder" in post.featured_image.url %}
+                    <img src="{{ MEDIA_URL }}kittens-3535404_640.jpg" alt="post__image" class="card__image">
+                    {% else %}
+                    <img src="{{ post.featured_image.url }}" alt="post__image" class="card__image">
+                    {% endif %}
+                </div>
+                <div class="card__body">
+                    <span class="tag tag-red">{{ post.category }}</span>
+                    <h4>{{ post.title }}</h4>
+                    <p>{{ post.excerpt }}</p>
+                </div>
+                <div class="card__footer">
+                    <div class="user">
+                        <div class="user__info">
+                            <h5>{{ post.author }}</h5>
+                            <small>{{ post.created_on }} <i class="far fa-heart"></i>
+                                {% if post.number_of_likes == None %}
 
-                            {% else %}
-                            {{ post.number_of_likes }}
-                            {% endif %}
-                        </small>
+                                {% else %}
+                                {{ post.number_of_likes }}
+                                {% endif %}
+                            </small>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </a>
         {% endfor %}
         <div class="pagination">
             <span class="step-links">

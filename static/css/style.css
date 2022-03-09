@@ -10,6 +10,27 @@ body {
     font-family: 'Merriweather', serif;
 }
 
+.red-button {
+    background-color: #c72b2d;
+    color: #FFFFFF;
+    padding: .5rem;
+    border: 2px solid #FFFFFF;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+input {
+    border-radius: 10px;
+    padding: .15rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    align-items: flex-end;
+}
+
 header {
     background-color: #f0bc2a;
     text-shadow: 2px 2px hsl(0deg 0% 0% / 20%);
@@ -289,6 +310,11 @@ nav {
     position: relative;
 }
 
+.post-link {
+    text-decoration: none;
+    color: darkslategrey;
+}
+
 
 .post-header {
     text-align: center;
@@ -544,6 +570,37 @@ footer {
     background-color: white;
 }
 
+/* Allauth Stylings */
+
+.allauth-body {
+    min-height: 100vh;
+    background-image: url(/media/circle-scatter-haikei\ \(5\).png);
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.allauth-content {
+    display: flex;
+    color: black;
+    background-color: #f0bc2a;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 15px;
+    border: 3px solid #c72b2d;
+    box-shadow: 0 .8rem 1.5rem rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 30%;
+}
+
+/* Apply margin to all child elements that are not the last child */
+
+.allauth-content>*:not(:last-child) {
+    display: block;
+    margin-bottom: .5rem;
+}
 
 /* Media Queries */
 
@@ -557,7 +614,7 @@ footer {
         z-index: 999;
         width: 100%;
     }
-
+    
     .nav-link-top {
         background-color: #f0bc2a;
         color: #ECE9E6;
@@ -601,6 +658,7 @@ footer {
     }
 
 }
+
 
 
 @media only screen and (max-width: 500px) {
