@@ -57,6 +57,15 @@
           <li class="nav-item">
             <a class="nav-link-top" href="#">Contact</a>
           </li>
+          <li id="account-link" class="nav-link-top">Account <i class="fa fa-angle-down" aria-hidden="true"></i>
+            <ul id="account-list">
+              {% if user.is_authenticated %}
+                <li class="drop-list"><a href="{% url 'account_logout' %}">Log Out</a>></li>
+              {% else %}
+                <li class="drop-list"><a href="{% url 'account_signup' %}">Register</a></li>
+                <li class="drop-list"><a href="{% url 'account_login' %}">Login</a></li>
+              {% endif %}
+            </ul>
         </ul>
       </nav>
     </div>

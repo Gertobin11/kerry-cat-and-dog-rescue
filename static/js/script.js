@@ -6,6 +6,10 @@ let dogsLink = document.getElementById("dogs-link");
 
 let dogList = document.getElementById("dogs-list");
 
+let accountLink = document.getElementById("account-link")
+
+let accountList = document.getElementById("account-list")
+
 let logoDiv = document.querySelector(".logo-div");
 
 let logo = document.querySelector(".logo");
@@ -24,6 +28,8 @@ let catsLinkOpen = false;
 
 let dogsLinkOpen = false;
 
+let accountMenuOpen = false
+
 menuBtn.addEventListener("click", () => {
     if(!menuOpen) {
         menuBtn.classList.add("open")
@@ -38,6 +44,7 @@ menuBtn.addEventListener("click", () => {
 
 catList.classList.add("hide");
 dogList.classList.add("hide");
+accountList.classList.add("hide")
 
 const showDropDownItems = () => {
     dropDownItems.forEach(item => {
