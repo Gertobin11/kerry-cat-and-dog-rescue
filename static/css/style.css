@@ -146,6 +146,41 @@ nav {
     color: white;
 }
 
+#account-list {
+    top: 100%;
+    position: absolute;
+    list-style: none;
+    background: #f0bc2a;
+    overflow: hidden;
+}
+
+#account-list li {
+    width: 10rem;
+    height: 2rem;
+}
+
+#account-list li a {
+    height: 100%;
+    width: 100%;
+    color: black !important;
+    text-decoration: none !important;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+
+#account-list li a:hover {
+    background-color: #c72b2d;
+    color: white !important;
+}
+
+.drop-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
 .hide {
     display: none !important;
 }

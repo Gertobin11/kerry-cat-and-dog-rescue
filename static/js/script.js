@@ -87,6 +87,17 @@ dogsLink.addEventListener("mouseenter", function (event) {
     setTimeout(showDropDownItems, 200)
 })
 
+accountLink.addEventListener("mouseleave", function (event) {
+    accountList.classList.remove("show")
+    accountList.classList.add("hide")
+    hideDropDownItems()
+})
+
+accountLink.addEventListener("mouseenter", function (event) {
+    accountList.classList.add("show", "show-ul")
+    setTimeout(showDropDownItems, 200)
+})
+
 logoDiv.addEventListener("mouseenter", function (event) {
     logo.classList.add('logo-rotate')
 })
@@ -115,6 +126,16 @@ dogsLink.addEventListener("mouseleave", function (event) {
     dogsLinkOpen = true
 })
 
+accountLink.addEventListener("mouseenter", function (event) {
+    downIcons[2].classList.add("drop")
+    accountLinkOpen = true;
+})
+
+accountLink.addEventListener("mouseleave", function (event) {
+    downIcons[2].classList.remove("drop")
+    accountLinkOpen = true
+})
+
 dogsLink.addEventListener("click", () => {
     if (dogsLinkOpen){
         dogList.classList.remove("show")
@@ -136,5 +157,17 @@ catsLink.addEventListener("click", () => {
         catList.classList.add("show")
         catList.classList.remove("hide")
         catsLinkOpen = true;
+    }
+})
+
+accountLink.addEventListener("click", () => {
+    if (accountLinkOpen) {
+        accountList.classList.remove("show")
+        accountList.classList.add("hide")
+        accountLinkOpen = false;
+    } else {
+        accountList.classList.add("show")
+        accountList.classList.remove("hide")
+        accountLinkOpen = true;
     }
 })

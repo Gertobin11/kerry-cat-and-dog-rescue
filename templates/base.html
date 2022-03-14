@@ -62,7 +62,7 @@
               {% if user.is_authenticated %}
                 <li class="drop-list"><a href="{% url 'account_logout' %}">Log Out</a>></li>
               {% else %}
-                <li class="drop-list"><a href="{% url 'account_signup' %}">Register</a></li>
+                <li class="drop-list"><a class="account-link-a" href="{% url 'account_signup' %}">Register</a></li>
                 <li class="drop-list"><a href="{% url 'account_login' %}">Login</a></li>
               {% endif %}
             </ul>
