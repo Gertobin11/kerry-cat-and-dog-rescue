@@ -7,7 +7,7 @@
     </div>
     <div class="post-div">
         {% for post in post_list %}
-        <a class="post-link" href="{% url 'blog_details' post.slug %}">
+        <a class="post-link grow" href="{% url 'blog_details' post.slug %}">
             <div class="card">
                 <div class="card__header">
                     {% if "placeholder" in post.featured_image.url %}
