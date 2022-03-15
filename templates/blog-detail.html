@@ -20,17 +20,31 @@
         </div>
         <div class="blog-content">
             <p class="post-content">{{ post.content | safe }}</p>
-            <p>
-                <i class="far fa-heart"></i>
-                {% if post.number_of_likes == None %}
-
-                {% else %}
-                {{ post.number_of_likes }}
-                {% endif %}
-                {% with comments.count as total_comments %}
-                <strong><i class="far fa-comments"></i> {{ total_comments }}</strong>
-                {% endwith %}
-            </p>
+            <div class="like-div">
+                {% if user.is_authenticated %}
+                <form method="POST" action="{% url 'post_like' post.slug %}">
+                    {% csrf_token %}
+                    {% if liked %}
+                    <button type="submit" name="blog_post_id" value="{{ post.slug }}" class="like-button"><i
+                            class="fas fa-heart"></i></button>
+                    {% else %}
+                    <button type="submit" name="blog_post_id" value="{{ post.slug }}" class="unlike-button"><i
+                            class="far fa-heart"></i></button>
+                    {% endif %}
+                </form>
+                <p>
+                    {% else %}
+                    <i class="far fa-heart"></i>
+                    {% endif %}
+                    {% if post.number_of_likes == None %}
+                    {% else %}
+                    {{ post.number_of_likes }}
+                    {% endif %}
+                    {% with comments.count as total_comments %}
+                    <strong><i class="far fa-comments"></i> {{ total_comments }}</strong>
+                    {% endwith %}
+                </p>
+            </div>
         </div>
     </div>
 </main>
@@ -39,27 +53,27 @@
         <div class="comments">
             <h2>Comments</h2>
             <div class="comment-container">
-                {% for comment in comment %}
-                <p>Commented by: <strong>{{ comment.name }}</strong><small> on : {{ comment.created_on }}</small></p>
-                <hr>
+                {% for comment in comments %}
                 <p>{{ comment.body | linebreaks }}</p>
+                <small>by: <strong>{{ comment.name }}</strong> on : {{ comment.created_on }}</small>
+                <hr>
                 {% endfor %}
             </div>
         </div>
         <div class="comment-form">
             <div class="comment-container">
                 {% if commented %}
-                    <p>Your comment is awaiting approval!</p>
+                <p class="post-response">Your comment is awaiting approval!</p>
                 {% else %}
-                    {% if user.is_authenticated %}
-                        <h2>Leave A Comment</h2>
-                        <p>Posting as : {{ user.username }}</p>
-                        <form method="POST" action="">
-                            {{ comment_form | crispy}}
-                            {% csrf_token %}
-                            <button type="submit">Post</button>
-                        </form>
-                    {% endif %}
+                {% if user.is_authenticated %}
+                <h2>Leave A Comment</h2>
+                <p>Posting as : {{ user.username }}</p>
+                <form method="POST" action="">
+                    {{ comment_form | crispy}}
+                    {% csrf_token %}
+                    <button class="green-button" type="submit">Post</button>
+                </form>
+                {% endif %}
                 {% endif %}
             </div>
         </div>

@@ -70,6 +70,16 @@
       </nav>
     </div>
   </header>
+  {% if messages %}
+    {% for message in messages %}
+     <div class="message-container">
+      <div class="alert {{ message.tags }}" id="msg">
+        {{ message | safe }}
+        <button class="dismiss" type="button">X</button>
+      </div>
+    {% endfor %}
+  </div>
+  {% endif %}
 
   {% block content %}
   {% endblock %}

@@ -32,7 +32,7 @@ class Post(models.Model):
         return self.title
 
     def number_of_likes(self):
-        self.likes.count()
+        return self.likes.count()
 
 
 

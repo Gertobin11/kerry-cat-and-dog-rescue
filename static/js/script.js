@@ -31,7 +31,7 @@ let dogsLinkOpen = false;
 let accountMenuOpen = false
 
 menuBtn.addEventListener("click", () => {
-    if(!menuOpen) {
+    if (!menuOpen) {
         menuBtn.classList.add("open")
         navList.classList.add("show", "show-ul")
         menuOpen = true;
@@ -136,8 +136,10 @@ accountLink.addEventListener("mouseleave", function (event) {
     accountLinkOpen = true
 })
 
+// Adding click functionality to the dog/cat/account links for ux in mobile views
+
 dogsLink.addEventListener("click", () => {
-    if (dogsLinkOpen){
+    if (dogsLinkOpen) {
         dogList.classList.remove("show")
         dogList.classList.add("hide")
         dogsLinkOpen = false;
@@ -170,4 +172,24 @@ accountLink.addEventListener("click", () => {
         accountList.classList.remove("hide")
         accountLinkOpen = true;
     }
+})
+
+/// JavaScript for Dismiising the messages displayed to the user
+
+let messages = Array.from(document.getElementsByClassName('message-container'))
+
+let messageBtn = Array.from(document.getElementsByClassName('dismiss'))
+
+messageBtn.forEach(btn => {
+    btn.addEventListener('click', () => {
+        btn.parentNode.parentNode.remove()
+    })
+})
+
+// Close Message alert after 3 seconds
+
+messages.forEach(message => {
+setTimeout(function () {
+    message.remove();
+}, 3000)
 })
