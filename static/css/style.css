@@ -547,6 +547,11 @@ nav {
     margin-top: auto;
 }
 
+.card__header {
+    height: 250px;
+    overflow: hidden;
+}
+
 .user {
     display: flex;
     gap: .5rem;
@@ -695,8 +700,6 @@ footer {
 }
 
 .blog-image {
-    width: 100vw;
-    max-height: 50vh;
     display: flex;
     justify-content: center;
     overflow: hidden;
@@ -708,6 +711,7 @@ footer {
     border-radius: 20px;
     box-shadow: 0 .8rem 1.5rem rgba(0, 0, 0, 0.4);
     max-width: 70%;
+    max-height: 50vh;
 }
 
 .blog-title {
@@ -816,7 +820,7 @@ footer {
 
 .allauth-body {
     min-height: 100vh;
-    background-image: url(/media/circle-scatter-haikei\ \(5\).png);
+    background-image: url(https://res.cloudinary.com/dyg53cwvw/image/upload/v1647434688/circle-scatter-haikei_5_qbefou.png);
     display: flex;
     justify-content: center;
     position: relative;
