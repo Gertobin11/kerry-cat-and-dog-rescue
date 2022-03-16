@@ -33,7 +33,7 @@
                             class="far fa-heart"></i></button>
                     {% endif %}
                 </form>
-                <p>
+                <span>
                     {% else %}
                     <i class="far fa-heart"></i>
                     {% endif %}
@@ -44,7 +44,7 @@
                     {% with comments.count as total_comments %}
                     <strong><i class="far fa-comments"></i> {{ total_comments }}</strong>
                     {% endwith %}
-                </p>
+                </span>
             </div>
         </div>
     </div>

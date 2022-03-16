@@ -974,8 +974,29 @@ footer {
         align-items: center;
     }
 
+    .blog-content > * {
+        width: 100%;
+        text-align: -webkit-center;
+        margin: 0 auto !important;
+        float: none !important;
+    }
+
     .blog-content p {
         width: 100%;
+    }
+
+    .blog-title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .blog-title > * {
+        text-align: center;
+    }
+
+    .like-div {
+        justify-content: center;
     }
 }
 
