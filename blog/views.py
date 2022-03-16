@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import CommentForm
@@ -55,8 +56,10 @@ class PostDetail(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
+            messages.success(request, 'Your comment has been uploaded successfully')
         else:
             comment_form = CommentForm()
+            messages.error(request, 'Sorry there was a problem with your comment upload, please try again')
 
         return render(request, template, context)
 
