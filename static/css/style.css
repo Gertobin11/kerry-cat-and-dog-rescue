@@ -705,13 +705,14 @@ footer {
     overflow: hidden;
     padding-bottom: 2rem;
     border-radius: 7px;
+    width: 80%;
+    height: 60vh;
+    overflow: hidden;
 }
 
 .blog-image img {
     border-radius: 20px;
     box-shadow: 0 .8rem 1.5rem rgba(0, 0, 0, 0.4);
-    max-width: 70%;
-    max-height: 50vh;
 }
 
 .blog-title {
@@ -722,6 +723,16 @@ footer {
 
 .blog-content {
     background-color: white;
+    max-width: 100%;
+    overflow-wrap: break-word;
+}
+
+.blog-content div {
+    width: 100% !important;
+}
+
+.blog-content p {
+    width: 80% !important;
 }
 
 .grow {
@@ -917,5 +928,32 @@ footer {
 
     .title {
         font-size: 1rem;
+    }
+
+    .comments-container {
+        width: 100%;
+    }
+
+    .blog-section {
+        width: 100%;
+    }
+
+    .blog-content {
+        width: 100%;
+    }
+
+    .blog-content p {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 879px) {
+    .card {
+        width: 85%;
+    }
+
+    .post-link {
+    display: flex;
+    justify-content: center;
     }
 }
