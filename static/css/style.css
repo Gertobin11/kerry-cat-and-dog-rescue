@@ -934,12 +934,44 @@ footer {
         width: 100%;
     }
 
+    #id_body {
+        width: 90%;
+    }
+
+    .blog-section {
+        padding: 3rem 0 0 0;
+    }
+
+    .blog-image {
+        width: 100%;
+    }
+
+    .blog-image img {
+        width: 90%;
+    }
+
+    .comments-container > * {
+        width: 100%;
+    }
+
+    .comment-container {
+        max-width: 100%;
+    }
+
+    .comment-form {
+        max-width: 90%;
+    }
+
     .blog-section {
         width: 100%;
     }
 
     .blog-content {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .blog-content p {
@@ -956,4 +988,5 @@ footer {
     display: flex;
     justify-content: center;
     }
+    
 }
