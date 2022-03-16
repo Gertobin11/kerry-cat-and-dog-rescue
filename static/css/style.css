@@ -896,7 +896,6 @@ footer {
     }
 
     .container {
-        width: 95%;
         display: flex;
     }
 
@@ -939,7 +938,7 @@ footer {
     }
 
     .blog-section {
-        padding: 3rem 0 0 0;
+        padding: 4rem 0 0 0;
     }
 
     .blog-image {
@@ -952,6 +951,7 @@ footer {
 
     .comments-container > * {
         width: 100%;
+        text-align: center;
     }
 
     .comment-container {
@@ -997,6 +997,10 @@ footer {
 
     .like-div {
         justify-content: center;
+    }
+
+    footer {
+        padding-top: 3rem;
     }
 }
 
