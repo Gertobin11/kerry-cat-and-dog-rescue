@@ -38,16 +38,18 @@
       <nav>
         <ul class="nav-list">
           <li class="nav-item"><a class="nav-link-top" href="#">Home</a></li>
-          <li id="cats-link" class="nav-link-top">Cats <i class="fa fa-angle-down" aria-hidden="true"></i>
-            <ul id="cats-list">
+          <li id="cats-link" class="nav-link-top drop-down-link">Cats <i class="fa fa-angle-down"
+              aria-hidden="true"></i>
+            <ul id="cats-list" class="hide">
               <li class="drop-list">Cats for Adoption</li>
               <li class="drop-list">Neutering</li>
               <li class="drop-list">TNR</li>
               <li class="drop-list">Adoption Questionaire</li>
             </ul>
           </li>
-          <li id="dogs-link" class="nav-link-top">Dogs <i class="fa fa-angle-down" aria-hidden="true"></i>
-            <ul id="dogs-list">
+          <li id="dogs-link" class="nav-link-top drop-down-link">Dogs <i class="fa fa-angle-down"
+              aria-hidden="true"></i>
+            <ul id="dogs-list" class="hide">
               <li class="drop-list">Dogs for Adoption</li>
               <li class="drop-list">Neutering</li>
               <li class="drop-list">Adoption Questionaire</li>
@@ -57,8 +59,8 @@
           <li class="nav-item">
             <a class="nav-link-top" href="#">Contact</a>
           </li>
-          <li id="account-link" class="nav-link-top">Account <i class="fa fa-angle-down" aria-hidden="true"></i>
-            <ul id="account-list">
+          <li id="account-link" class="nav-link-top drop-down-link">Account <i class="fa fa-angle-down" aria-hidden="true"></i>
+            <ul id="account-list" class="hide">
               {% if user.is_authenticated %}
                 <li class="drop-list"><a href="{% url 'account_logout' %}">Log Out</a></li>
               {% else %}

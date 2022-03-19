@@ -1,15 +1,3 @@
-let catsLink = document.getElementById("cats-link");
-
-let catList = document.getElementById("cats-list");
-
-let dogsLink = document.getElementById("dogs-link");
-
-let dogList = document.getElementById("dogs-list");
-
-let accountLink = document.getElementById("account-link")
-
-let accountList = document.getElementById("account-list")
-
 let logoDiv = document.querySelector(".logo-div");
 
 let logo = document.querySelector(".logo");
@@ -22,13 +10,13 @@ let menuBtn = document.querySelector(".menu-btn");
 
 let navList = document.querySelector(".nav-list")
 
+let dropDownLinks = Array.from(document.getElementsByClassName("drop-down-link"))
+
 let menuOpen = false;
 
-let catsLinkOpen = false;
+let linkOpen = Boolean
 
-let dogsLinkOpen = false;
-
-let accountMenuOpen = false
+// Function for opening and closing the mobile hamburger
 
 menuBtn.addEventListener("click", () => {
     if (!menuOpen) {
@@ -42,9 +30,7 @@ menuBtn.addEventListener("click", () => {
     }
 })
 
-catList.classList.add("hide");
-dogList.classList.add("hide");
-accountList.classList.add("hide")
+// Functions for setting how the anchor texts appear on the screen
 
 const showDropDownItems = () => {
     dropDownItems.forEach(item => {
@@ -64,39 +50,29 @@ dropDownItems.forEach(item => {
 
 hideDropDownItems()
 
+// Adding event listeners for when the nav is hovered over and exited
 
-catsLink.addEventListener("mouseleave", function (event) {
-    catList.classList.remove("show")
-    catList.classList.add("hide")
-    hideDropDownItems()
+dropDownLinks.forEach(dropDownLink => {
+    dropDownLink.addEventListener("mouseleave", function () {
+        this.children[1].classList.remove("show", "show-ul")
+        this.children[0].classList.remove("drop")
+        this.children[1].classList.add("hide")
+        hideDropDownItems()
+        linkOpen = false
+    })
 })
 
-catsLink.addEventListener("mouseenter", function (event) {
-    catList.classList.add("show", "show-ul")
-    setTimeout(showDropDownItems, 200)
+dropDownLinks.forEach(dropDownLink => {
+    dropDownLink.addEventListener("mouseenter", function () {
+        this.children[1].classList.remove("hide")
+        this.children[0].classList.add("drop")
+        this.children[1].classList.add("show", "show-ul")
+        linkOpen = true
+        setTimeout(showDropDownItems, 200)
+    })
 })
 
-dogsLink.addEventListener("mouseleave", function (event) {
-    dogList.classList.remove("show")
-    dogList.classList.add("hide")
-    hideDropDownItems()
-})
-
-dogsLink.addEventListener("mouseenter", function (event) {
-    dogList.classList.add("show", "show-ul")
-    setTimeout(showDropDownItems, 200)
-})
-
-accountLink.addEventListener("mouseleave", function (event) {
-    accountList.classList.remove("show")
-    accountList.classList.add("hide")
-    hideDropDownItems()
-})
-
-accountLink.addEventListener("mouseenter", function (event) {
-    accountList.classList.add("show", "show-ul")
-    setTimeout(showDropDownItems, 200)
-})
+// Event listener for whn the logo is hovered
 
 logoDiv.addEventListener("mouseenter", function (event) {
     logo.classList.add('logo-rotate')
@@ -106,75 +82,25 @@ logoDiv.addEventListener("mouseleave", function (event) {
     logo.classList.remove('logo-rotate')
 })
 
-catsLink.addEventListener("mouseenter", function (event) {
-    downIcons[0].classList.add("drop")
-    catsLinkOpen = true;
-})
 
-catsLink.addEventListener("mouseleave", function (event) {
-    downIcons[0].classList.remove("drop")
-    catsLinkOpen = false;
-})
-
-dogsLink.addEventListener("mouseenter", function (event) {
-    downIcons[1].classList.add("drop")
-    dogsLinkOpen = true;
-})
-
-dogsLink.addEventListener("mouseleave", function (event) {
-    downIcons[1].classList.remove("drop")
-    dogsLinkOpen = true
-})
-
-accountLink.addEventListener("mouseenter", function (event) {
-    downIcons[2].classList.add("drop")
-    accountLinkOpen = true;
-})
-
-accountLink.addEventListener("mouseleave", function (event) {
-    downIcons[2].classList.remove("drop")
-    accountLinkOpen = true
-})
 
 // Adding click functionality to the dog/cat/account links for ux in mobile views
-
-dogsLink.addEventListener("click", () => {
-    if (dogsLinkOpen) {
-        dogList.classList.remove("show")
-        dogList.classList.add("hide")
-        dogsLinkOpen = false;
-    } else {
-        dogList.classList.add("show")
-        dogList.classList.remove("hide")
-        dogsLinkOpen = true;
-    }
+dropDownLinks.forEach(dropDownLink => {
+    dropDownLink.addEventListener("click", function() {
+        if (linkOpen) {
+            this.children[1].classList.remove("show", "show-ul")
+            this.children[1].classList.add("hide")
+            linkOpen = false;
+        } else {
+            this.children[1].classList.add("show", "show-ul")
+            this.children[1].classList.remove("hide")
+            linkOpen = true;
+        }
+    })
 })
 
-catsLink.addEventListener("click", () => {
-    if (catsLinkOpen) {
-        catList.classList.remove("show")
-        catList.classList.add("hide")
-        catsLinkOpen = false;
-    } else {
-        catList.classList.add("show")
-        catList.classList.remove("hide")
-        catsLinkOpen = true;
-    }
-})
 
-accountLink.addEventListener("click", () => {
-    if (accountLinkOpen) {
-        accountList.classList.remove("show")
-        accountList.classList.add("hide")
-        accountLinkOpen = false;
-    } else {
-        accountList.classList.add("show")
-        accountList.classList.remove("hide")
-        accountLinkOpen = true;
-    }
-})
-
-/// JavaScript for Dismiising the messages displayed to the user
+/// JavaScript for Dismissing the messages displayed to the user
 
 let messages = Array.from(document.getElementsByClassName('message-container'))
 
