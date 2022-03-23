@@ -1,4 +1,39 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
+<section id="landing-page">
+
+</section>
+<section id="mission-statement">
+
+</section>
+<section id="latest-posts">
+    <div class="carousel-wrapper">
+        <div class="carousel">
+            {% for post in object_list %}
+            <div class="carousel-card">
+                <div class="carousel-card__header">
+                    <h3>{{ post.excerpt }}</h3>
+                    <small>By: {{ post.author }}</small>
+                </div>
+                <div class="carousel-card__image">
+                    {% if "placeholder" in post.featured_image.url %}
+                        <img src="{{ MEDIA_URL }}kittens-3535404_640.jpg" alt="post__image" class="card__image">
+                    {% else %}
+                        <img src="{{ post.featured_image.url }}" alt="image from {{ post.title }}">
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+            <div class="carousel-button-next"></div>
+            <div class="carousel-button-prev"></div>
+        </div>
+    </div>
+{% for post in post_list %}
+{% endfor %}
+</section>
+{% endblock %}
+
+{% block postloadjs %}
+    <script src="{% static 'js/index.js' %}"></script>
 {% endblock %}
