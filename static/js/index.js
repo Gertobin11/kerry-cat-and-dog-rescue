@@ -23,6 +23,16 @@
         let prev = document.getElementsByClassName('carousel-button-prev')[0];
         next.addEventListener('click', moveNext);
         prev.addEventListener('click', movePrev);
+        // Adding event listeners to add animation when the button is clicked
+        next.addEventListener('click', function() {
+            next.classList.add('button-push')
+            console.log('adding class')
+            setTimeout(() => next.classList.remove('button-push'), 1100)
+        });
+        prev.addEventListener('click', function () {
+            prev.classList.add('button-push');
+            setTimeout(() => prev.classList.remove('button-push'), 1100)
+        });
     }
     
     // Next navigation handler

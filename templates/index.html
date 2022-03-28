@@ -2,26 +2,68 @@
 {% load static %}
 {% block content %}
 <section id="landing-page">
-
+    <div class="landing-page-container">
+        <div class="tagline">
+            <h2>Kingdom Cat & Dog Rescue</h2>
+            <p>Kingdom Cat & Dog Rescue (KCADR) is a small animal rescue, formed early in 2015, and dedicated to helping
+                as many unwanted and stray cats and dogs as possible. Our directors have been heavily involved in animal
+                welfare since 2005.</p>
+        </div>
+    </div>
 </section>
 <section id="mission-statement">
-
+    <div class="role-div">
+        <h2>
+            Our Role
+        </h2>
+        <p>
+            Our role is to prevent cruelty to animals, to promote animal welfare and to pro-actively relieve animal
+            suffering in Co. Kerry. The organisation supports the aims of similarly minded animal welfare bodies throughout
+            the world. K.C.A.D.R. believes that animals have the right to live their lives free from needless suffering and
+            we aim to rescue, rehabilitate and responsibly rehome cats and dogs that are subjected to cruelty or neglect. We
+            also believe that these animals have an intrinsic value entirely independent of their value or use to man and
+            should be respected and protected accordingly.
+        </p>
+    </div>
+    <div class="role-icons">
+        <div class="icons">
+            <h3>
+                Promote animal welfare
+            </h3>
+            <img src="/media/animal-rights.png" alt="">
+        </div>
+        <div class="icons">
+            <h3>
+                Prevent cruelty to animals
+            </h3>
+            <img src="/media/cruelty-to-animals.png" alt="">
+        </div>
+        <div class="icons">
+            <h3>
+                Relieve animal suffering
+            </h3>
+            <img src="/media/animal-welfare.png" alt="">
+        </div>
+    </div>
 </section>
 <section id="latest-posts">
+    <h2>Our Latest Posts</h2>
+    <p>Click on the image below to check out the post <i class="fas fa-arrow-down"></i> </p>
     <div class="carousel-wrapper">
         <div class="carousel">
             {% for post in object_list %}
             <div class="carousel-card">
+                <div class="carousel-card__image">
+                    {% if "placeholder" in post.featured_image.url %}
+                        <a href="{% url 'blog_details' post.slug %}"><img src="{{ MEDIA_URL }}kittens-3535404_640.jpg" alt="post__image" class="card__image"></a>
+                    {% else %}
+                        <a href="{% url 'blog_details' post.slug %}"><img src="{{ post.featured_image.url }}"
+                            alt="image from {{ post.title }}"></a>
+                    {% endif %}
+                </div>
                 <div class="carousel-card__header">
                     <h3>{{ post.excerpt }}</h3>
                     <small>By: {{ post.author }}</small>
-                </div>
-                <div class="carousel-card__image">
-                    {% if "placeholder" in post.featured_image.url %}
-                        <img src="{{ MEDIA_URL }}kittens-3535404_640.jpg" alt="post__image" class="card__image">
-                    {% else %}
-                        <img src="{{ post.featured_image.url }}" alt="image from {{ post.title }}">
-                    {% endif %}
                 </div>
             </div>
             {% endfor %}

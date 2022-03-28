@@ -18,6 +18,7 @@ let linkOpen = Boolean
 
 // Function for opening and closing the mobile hamburger
 
+
 menuBtn.addEventListener("click", () => {
     if (!menuOpen) {
         menuBtn.classList.add("open")
@@ -119,3 +120,35 @@ setTimeout(function () {
     message.remove();
 }, 3000)
 })
+
+const upBtn = document.getElementById("button-up");
+const downBtn = document.getElementById("button-down");
+
+window.onscroll = function () {
+    scrollFunction()
+}
+
+const scrollFunction = () => {
+    if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+        upBtn.style.display = "block";
+    } else {
+        upBtn.style.display = "none";
+    }
+}
+
+function topFunction() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+function scrollDown() {
+    window.scrollBy({
+        behavior: "smooth",
+        top: 600
+    })
+}
+
+upBtn.addEventListener('click', topFunction)
+downBtn.addEventListener('click', scrollDown)
