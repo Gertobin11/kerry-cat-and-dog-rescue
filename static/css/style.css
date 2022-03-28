@@ -1110,6 +1110,32 @@ footer {
     background-color: transparent;
 }
 
+/* Blog form styles */
+
+.form-section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 6rem 0;
+    align-items: center;
+}
+
+.post-form {
+    max-width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+textarea {
+    max-width: 90%;
+}
+
 /* Allauth Stylings */
 
 .allauth-body {

@@ -3,7 +3,7 @@ from django.views import generic, View
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 
 
 class PostList(generic.ListView):
@@ -74,3 +74,9 @@ class PostLike(View):
         else:
             post.likes.add(request.user)
         return HttpResponseRedirect(reverse('blog_details', args=[slug]))
+
+
+class PostFormView(generic.edit.FormView):
+    form_class = PostForm
+    success_url = '/blog/'
+    template_name = 'blog-form.html'
