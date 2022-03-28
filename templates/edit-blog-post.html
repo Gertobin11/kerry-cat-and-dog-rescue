@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="form-section">
+    <h1>Edit the Post</h1>
+    <form class="post-form" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input class="green-button" type="submit" value="Update Post">
+    </form>
+</section>
+{% endblock %}

@@ -80,3 +80,10 @@ class PostFormView(generic.edit.FormView):
     form_class = PostForm
     success_url = '/blog/'
     template_name = 'blog-form.html'
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
+
+
+#class PostFormEdit(generic.edit.UpdateView):
