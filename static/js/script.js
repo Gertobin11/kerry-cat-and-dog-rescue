@@ -118,7 +118,7 @@ messageBtn.forEach(btn => {
 messages.forEach(message => {
 setTimeout(function () {
     message.remove();
-}, 3000)
+}, 4000)
 })
 
 const upBtn = document.getElementById("button-up");

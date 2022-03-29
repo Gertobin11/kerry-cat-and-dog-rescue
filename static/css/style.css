@@ -878,6 +878,39 @@ nav {
     min-height: 100vh;
 }
 
+.admin-options {
+    display: flex;
+    padding: .7rem 1rem;
+    justify-content: flex-end;
+}
+
+.edit-link {
+    color: lightskyblue;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.delete-link {
+    color: #c72b2d;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.confirm-delete-section {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://res.cloudinary.com/dyg53cwvw/image/upload/v1647434688/circle-scatter-haikei_5_qbefou.png);
+}
+
+.confirm-delete-section form {
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 .8rem 1.5rem rgba(0, 0, 0, 0.4);
+    background-color: #FFFFFF;
+}
+
 /* Footer styles */
 
 footer {
@@ -1120,6 +1153,7 @@ footer {
     gap: 1.5rem;
     padding: 6rem 0;
     align-items: center;
+    background-image: url(https://res.cloudinary.com/dyg53cwvw/image/upload/v1647434688/circle-scatter-haikei_5_qbefou.png);
 }
 
 .post-form {
@@ -1130,6 +1164,10 @@ footer {
     flex-wrap: wrap;
     gap: 1.5rem;
     align-items: flex-start;
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 1.2rem 2rem rgba(0, 0, 0, 0.8);
 }
 
 textarea {
@@ -1327,6 +1365,7 @@ textarea {
     .post-link {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     }
     .carousel-button-prev {
         left: 10%;

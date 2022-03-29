@@ -2,7 +2,7 @@
 {% block content %}
 <section class="form-section">
     <h1>Create A new Post</h1>
-    <form class="post-form" method="post">{% csrf_token %}
+    <form class="post-form" method="post" enctype='multipart/form-data'>{% csrf_token %}
         {{ form.as_p }}
         <input class="green-button" type="submit" value="Save Post">
     </form>

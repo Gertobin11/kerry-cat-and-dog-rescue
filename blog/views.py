@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import CommentForm, PostForm
@@ -65,8 +67,9 @@ class PostDetail(View):
 
 
 class PostLike(View):
-
+    """ View to add or remove likes from a post """
     def post(self, request, slug):
+        """ Function to handle when the user posts his like """
         post = get_object_or_404(Post, slug=slug)
 
         if post.likes.filter(id=request.user.id).exists():
@@ -76,14 +79,26 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('blog_details', args=[slug]))
 
 
-class PostFormView(generic.edit.FormView):
+class AddPostView(SuccessMessageMixin, CreateView):
+    """ View to handle creating a new blog post """
+    model = Post
     form_class = PostForm
     success_url = '/blog/'
     template_name = 'blog-form.html'
-
-    def form_valid(self, form):
-        form.save()
-        return super().form_valid(form)
+    success_message = 'Your post titled %(title)s was created successfully'
 
 
-#class PostFormEdit(generic.edit.UpdateView):
+class EditPostView(SuccessMessageMixin, UpdateView):
+    """ View to handle editing a blog post """
+    model = Post
+    form_class = PostForm
+    success_url = '/blog/'
+    template_name = 'edit-blog-post.html'
+    success_message = 'Your post titled %(title)s was edited successfully'
+
+
+class DeletePostView(SuccessMessageMixin, DeleteView):
+    """View to handle deleting Posts """
+    model = Post
+    success_url = '/blog/'
+    success_message = 'Your post titled %(title)s was successfully deleted'

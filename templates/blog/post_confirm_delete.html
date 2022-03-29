@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section class="confirm-delete-section">
+        <form method="post">
+            {% csrf_token %}
+            <p>Are you sure you want to delete "{{ object }}"?</p>
+            <input class="red-button" type="submit" value="confirm">
+        </form>
+    </section>
+{% endblock %}

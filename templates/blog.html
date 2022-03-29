@@ -36,6 +36,12 @@
                         </div>
                     </div>
                 </div>
+                {% if request.user.is_superuser %}
+                    <div class="admin-options">
+                        <a class="edit-link" href="{% url 'edit' post.slug %}">Edit</a> | 
+                        <a class="delete-link" href="{% url 'delete' post.slug %}">Delete</a>
+                    </div>
+                {% endif %}
             </div>
         </a>
         {% endfor %}
