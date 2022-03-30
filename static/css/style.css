@@ -1188,6 +1188,39 @@ textarea {
     width: 100%;
 }
 
+.dog-header {
+    display: flex;
+    justify-content: center;
+    padding-top: 6rem;
+    padding-bottom: 8rem;
+    background-image: url(https://res.cloudinary.com/dyg53cwvw/image/upload/v1648640885/yfq8wmhiu6aaabholx4z.jpg);
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -20rem;
+}
+
+.dog-header > * {
+    font-size: 2rem;
+    color: black;
+    text-shadow: 2px 2px hsl(0deg 100% 100% / 100%);
+}
+
+.inner-list {
+    display: flex;
+    padding-top: 1rem;
+    flex-direction: column;
+    list-style: inside;
+    gap: 1rem;
+}
+
+.outer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+}
+
 /* Allauth Stylings */
 
 .allauth-body {
@@ -1265,6 +1298,12 @@ textarea {
     }
 
     .post-header {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        background-position: 0;
+    }
+
+    .dog-header {
         padding-top: 3rem;
         padding-bottom: 3rem;
         background-position: 0;
@@ -1368,7 +1407,9 @@ textarea {
         padding-top: 3rem;
     }
 
-    
+    .post-form {
+        max-width: 100%;
+    }    
 }
 
 @media only screen and (max-width: 879px) {
