@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="form-section">
+    <form class="post-form" method="post" enctype='multipart/form-data'>{% csrf_token %}
+        <div class="form-heading">
+            <h1>Apply for Adoption</h1>
+            <h3 class="red">Please note that adoption fees will apply</h3>
+        </div>
+        {{ form.as_table }}
+        <p>Thank you for taking the time to provide us with some of your information! It will help us to match the most
+            suitable pet for you.</p>
+        <small class="red">Please note that if you are not the homeowner you will need to provide a letter from them stating that you have permission to keep a dog</small>
+        <input class="green-button" type="submit" value="Apply">
+    </form>
+</section>
+
+{% endblock %}

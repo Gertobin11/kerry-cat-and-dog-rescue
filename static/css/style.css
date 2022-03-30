@@ -49,6 +49,10 @@ body {
     box-shadow: 0 .6rem 1.2rem rgba(0, 0, 0, 0.4);
 }
 
+.red {
+    color:#c72b2d
+}
+
 .green-button {
     background-color: lightgreen;
     color: white;
@@ -1163,7 +1167,7 @@ footer {
     flex-direction: column;
     flex-wrap: wrap;
     gap: 1.5rem;
-    align-items: flex-start;
+    align-items: center;
     background-color: white;
     border-radius: 10px;
     padding: 2rem;
@@ -1172,6 +1176,16 @@ footer {
 
 textarea {
     max-width: 90%;
+}
+
+/* Dogs Stylings */ 
+
+.form-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+    width: 100%;
 }
 
 /* Allauth Stylings */

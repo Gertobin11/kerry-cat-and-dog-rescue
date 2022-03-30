@@ -4,11 +4,14 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from .models import Post
 from .forms import CommentForm, PostForm
 
 
 class PostList(generic.ListView):
+    """ Class based view to display the blog posts """
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'blog.html'
@@ -34,7 +37,7 @@ class PostDetail(View):
 
         return render(request, template, context)
 
-
+    @login_required()
     def post(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -68,6 +71,7 @@ class PostDetail(View):
 
 class PostLike(View):
     """ View to add or remove likes from a post """
+    @login_required
     def post(self, request, slug):
         """ Function to handle when the user posts his like """
         post = get_object_or_404(Post, slug=slug)
@@ -79,17 +83,24 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('blog_details', args=[slug]))
 
 
-class AddPostView(SuccessMessageMixin, CreateView):
+class AddPostView(PermissionRequiredMixin, SuccessMessageMixin, CreateView):
     """ View to handle creating a new blog post """
+    permission_required = "post.change_post"
     model = Post
     form_class = PostForm
     success_url = '/blog/'
     template_name = 'blog-form.html'
     success_message = 'Your post titled %(title)s was created successfully'
 
+    def form_valid(self, form):
+        """ adding the username automatically for the post """
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
-class EditPostView(SuccessMessageMixin, UpdateView):
+
+class EditPostView(PermissionRequiredMixin, SuccessMessageMixin, UpdateView):
     """ View to handle editing a blog post """
+    permission_required = "post.change_post"
     model = Post
     form_class = PostForm
     success_url = '/blog/'
@@ -97,8 +108,9 @@ class EditPostView(SuccessMessageMixin, UpdateView):
     success_message = 'Your post titled %(title)s was edited successfully'
 
 
-class DeletePostView(SuccessMessageMixin, DeleteView):
+class DeletePostView(PermissionRequiredMixin, SuccessMessageMixin, DeleteView):
     """View to handle deleting Posts """
+    permission_required = "post.delete_post"
     model = Post
     success_url = '/blog/'
     success_message = 'Your post titled %(title)s was successfully deleted'
