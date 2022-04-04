@@ -478,7 +478,7 @@ nav {
 #landing-page {
     width: 100%;
     height: 100vh;
-    background-image: url(/media/pexels-petra-vajdova-7341095.jpg);
+    background-image: url(https://res.cloudinary.com/dyg53cwvw/image/upload/v1648639868/e0l7w0p12mt1vigqt3lg.jpg);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -552,7 +552,7 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url(/media/cat-4475583_640.png);
+    background-image: url(https://res.cloudinary.com/dyg53cwvw/image/upload/v1649079930/cat-4475583_640_re9wu6.png);
     background-size: 150px;
     background-repeat: space;
     width: 100vw;
@@ -1033,13 +1033,18 @@ footer {
     padding-bottom: 2rem;
     border-radius: 7px;
     width: 80%;
-    height: 60vh;
+    max-height: 60vh;
     overflow: hidden;
+    align-items: center;
+    height: fit-content;
+    box-shadow: 0 .8rem 1.5rem rgba(0, 0, 0, 0.4);
+    margin-bottom: 2rem;
 }
 
 .blog-image img {
     border-radius: 20px;
     box-shadow: 0 .8rem 1.5rem rgba(0, 0, 0, 0.4);
+    width: 100%;
 }
 
 .blog-title {
@@ -1385,11 +1390,15 @@ textarea {
     }
 
     .blog-image {
-        width: 100%;
+        width: 90%;
+        box-shadow: none;
     }
 
     .blog-image img {
-        width: 90%;
+        width: 100%;
+        height: 100%;
+        box-shadow: none;
+        border-radius: 0%;
     }
 
     .comments-container > * {
