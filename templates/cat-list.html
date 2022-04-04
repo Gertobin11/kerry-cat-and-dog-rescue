@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="post-section">
+    <div class="cat-header">
+        <h1><i class="fas fa-heart"></i> Our Cats <i class="fas fa-heart"></i></h1>
+    </div>
+    <div class="post-div">
+        {% for post in post_list %}
+        <a class="post-link grow" href="{% url 'blog_details' post.slug %}">
+            <div class="card">
+                <div class="card__header">
+                    {% if "placeholder" in post.featured_image.url %}
+                    <img src="{{ MEDIA_URL }}kittens-3535404_640.jpg" alt="post__image" class="card__image">
+                    {% else %}
+                    <img src="{{ post.featured_image.url }}" alt="post__image" class="card__image">
+                    {% endif %}
+                </div>
+                <div class="card__body">
+                    <span class="tag tag-red">{{ post.category }}</span>
+                    <h4>{{ post.title }}</h4>
+                    <p>{{ post.excerpt }}</p>
+                </div>
+                <div class="card__footer">
+                    <div class="user">
+                        <div class="user__info">
+                            <h5>{{ post.author }}</h5>
+                            <small>{{ post.created_on }}
+                                {% if request.user in post.likes.all %}
+                                <i class="fas fa-heart"></i>
+                                {% else %}
+                                <i class="far fa-heart"></i>
+                                {% endif %}
+                                {{ post.number_of_likes }}
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                {% if request.user.is_superuser %}
+                <div class="admin-options">
+                    <a class="edit-link" href="{% url 'edit' post.slug %}">Edit</a> |
+                    <a class="delete-link" href="{% url 'delete' post.slug %}">Delete</a>
+                </div>
+                {% endif %}
+            </div>
+        </a>
+        {% endfor %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+
+</section>
+{% endblock %}

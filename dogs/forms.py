@@ -39,7 +39,7 @@ class DogAdoptionForm(forms.ModelForm):
             "accomodation_type": "Please select what option best describes your home",
             "homeowner": "Are you the homeowner?",
             "garden_type": "Please describe the layout of your garden i.e. fenced, grass",
-            "other_dogs": "Do yu have other dogs at the home?",
+            "other_dogs": "Do you have other dogs at the home?",
             "neutered": "If yes, Are they neutered?",
             "other_animals": "Do you have other animals at the home? If yes please identify them"
         }

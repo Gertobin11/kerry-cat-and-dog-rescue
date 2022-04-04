@@ -41,18 +41,18 @@
           <li id="cats-link" class="nav-link-top drop-down-link">Cats <i class="fa fa-angle-down"
               aria-hidden="true"></i>
             <ul id="cats-list" class="hide">
-              <li class="drop-list">Cats for Adoption</li>
-              <li class="drop-list">Neutering</li>
-              <li class="drop-list">TNR</li>
-              <li class="drop-list">Adoption Questionaire</li>
+              <li class="drop-list"><a href="{% url 'cat-adoption' %}">Our Cats</a></li>
+              <li class="drop-list"><a href="{% url 'dog-neuter' %}">Neutering</a></li>
+              <li class="drop-list"><a href="{% url 'tnr' %}">TNR</a></li>
+              <li class="drop-list"><a href="{% url 'cat-adoption-questionaire' %}">Adotion Questionaire</a></li>
             </ul>
           </li>
           <li id="dogs-link" class="nav-link-top drop-down-link">Dogs <i class="fa fa-angle-down"
               aria-hidden="true"></i>
             <ul id="dogs-list" class="hide">
-              <li class="drop-list"><a href="{% url 'dog-list' %}">Dogs for Adoption</a></li>
+              <li class="drop-list"><a href="{% url 'dog-list' %}">Our Dogs</a></li>
               <li class="drop-list"><a href="{% url 'dog-neuter' %}">Neutering</a></li>
-              <li class="drop-list">Adoption Questionaire</li>
+              <li class="drop-list"><a href="{% url 'dog-adoption' %}">Adoption Questionaire</a></li>
             </ul>
           </li>
           <li class="nav-item"><a class="nav-link-top" href="{% url 'blog' %}">Blog</a></li>
