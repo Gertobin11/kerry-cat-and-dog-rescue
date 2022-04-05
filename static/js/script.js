@@ -56,21 +56,25 @@ hideDropDownItems()
 
 dropDownLinks.forEach(dropDownLink => {
     dropDownLink.addEventListener("mouseleave", function () {
-        this.children[1].classList.remove("show", "show-ul")
-        this.children[0].classList.remove("drop")
-        this.children[1].classList.add("hide")
-        hideDropDownItems()
-        linkOpen = false
+        if (window.innerWidth > 880) {
+            this.children[1].classList.remove("show", "show-ul")
+            this.children[0].classList.remove("drop")
+            this.children[1].classList.add("hide")
+            hideDropDownItems()
+            linkOpen = false
+        }
     })
 })
 
 dropDownLinks.forEach(dropDownLink => {
     dropDownLink.addEventListener("mouseenter", function () {
-        this.children[1].classList.remove("hide")
-        this.children[0].classList.add("drop")
-        this.children[1].classList.add("show", "show-ul")
-        linkOpen = true
-        setTimeout(showDropDownItems, 200)
+        if (window.innerWidth > 880) {
+            this.children[1].classList.remove("hide")
+            this.children[0].classList.add("drop")
+            this.children[1].classList.add("show", "show-ul")
+            linkOpen = true
+            setTimeout(showDropDownItems, 200)
+        }
     })
 })
 
@@ -92,11 +96,15 @@ dropDownLinks.forEach(dropDownLink => {
         if (linkOpen) {
             this.children[1].classList.remove("show", "show-ul")
             this.children[1].classList.add("hide")
+            this.children[0].classList.remove("drop")
+            hideDropDownItems()
             linkOpen = false;
         } else {
             this.children[1].classList.add("show", "show-ul")
             this.children[1].classList.remove("hide")
+            this.children[0].classList.add("drop")
             linkOpen = true;
+            setTimeout(showDropDownItems, 200)
         }
     })
 })
