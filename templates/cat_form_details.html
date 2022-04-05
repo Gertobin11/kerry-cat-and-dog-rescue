@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<main class="form-section">
+    <div class="post-form">
+
+        <div class="blog-title">
+            <h1>{{ application.name }}</h1>
+            <hr>
+            <br>
+            <br>
+            <p><small>Email:</small> {{ application.email }}</p>
+            <br>
+            <p><small>Phone:</small> {{ application.phone }}</p>
+            <br>
+            <p><small>Applied on:</small> {{ application.applied_on }}</p>
+            <br>
+            <p><small>Address:</small> {{ application.address }}</p>
+            <br>
+            <p><small>County:</small> {{ application.county }}</p>
+            <br>
+            <p><small>Eircode:</small> {{ application.eircode }}</p>
+            <br>
+            <p><small>Homeowner:</small> {{ application.homeowner }}</p>
+            <br>
+            <p><small>Other Cats:</small> {{ application.other_cats }}</p>
+            <br>
+            <p><small>Neutered:</small> {{ application.neutered }}</p>
+            <br>
+            <p><small>Other Animals:</small> {{ application.other_animals }}</p>
+        </div>
+        <div class="blog-content">
+
+        </div>
+    </div>
+</main>
+{% endblock %}

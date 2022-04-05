@@ -31,9 +31,10 @@ class DisplaySubmittedForms(PermissionRequiredMixin, generic.ListView):
 class FormDetailView(PermissionRequiredMixin, View):
     """ Class to handle displaying the applications made """
     permission_required = "dogadoption.change_dogadoption"
+
     def get(self, request, post_id, *args, **kwargs):
         """ View to display an individual appication """
-        queryset = DogAdoption.objects.all()
+        queryset = DogAdoption.objects.all().order_by('-applied_on')
         application = get_object_or_404(queryset, id=post_id)
         context = {
             'application': application

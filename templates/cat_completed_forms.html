@@ -6,7 +6,7 @@
     </div>
     <div class="post-div">
         {% for post in object_list %}
-        <a class="post-link" href="{% url 'dog_form_details' post_id=post.id %}">
+        <a class="post-link" href="{% url 'cat_form_details' post_id=post.id %}">
             <div class="card">
                 <div class="card__body">
                     <h4>{{ post.name }}</h4>

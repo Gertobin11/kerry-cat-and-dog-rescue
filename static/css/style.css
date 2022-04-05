@@ -555,7 +555,7 @@ nav {
     background-image: url(https://res.cloudinary.com/dyg53cwvw/image/upload/v1649079930/cat-4475583_640_re9wu6.png);
     background-size: 150px;
     background-repeat: space;
-    width: 100vw;
+    width: 100%;
     padding: 4rem 0;
 }
 
@@ -809,6 +809,7 @@ nav {
     display: flex;
     flex-direction: column;
     gap: .5rem;
+    width: 100%;
 }
 
 
@@ -839,11 +840,13 @@ nav {
     display: flex;
     padding: 1rem;
     margin-top: auto;
+    width: 100%;
 }
 
 .card__header {
     height: 250px;
     overflow: hidden;
+    width: 100%;
 }
 
 .user {
@@ -1469,6 +1472,7 @@ textarea {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    width: 100%;
     align-items: center;
     }
     .carousel-button-prev {

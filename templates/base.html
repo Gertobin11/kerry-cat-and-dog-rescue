@@ -70,6 +70,7 @@
               {% if request.user.is_superuser %}
                 <li class="drop-list"><a href="{% url 'add' %}">Create A Post</a></li>
                 <li class="drop-list"><a href="{% url 'dog-forms' %}">Dog Applications</a></li>
+                <li class="drop-list"><a href="{% url 'cat_forms' %}">Cat Applications</a></li>
               {% endif %}
             </ul>
         </ul>
