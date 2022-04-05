@@ -23,7 +23,7 @@ class DisplaySubmittedForms(PermissionRequiredMixin, generic.ListView):
     """ Class to display all the completed user forms """
     permission_required = "dogadoption.change_dogadoption"
     model = DogAdoption
-    queryset = DogAdoption.objects.all()
+    queryset = DogAdoption.objects.all().order_by('-applied_on')
     paginate_by = 6
     template_name = 'dog-completed-forms.html'
 
@@ -34,7 +34,7 @@ class FormDetailView(PermissionRequiredMixin, View):
 
     def get(self, request, post_id, *args, **kwargs):
         """ View to display an individual appication """
-        queryset = DogAdoption.objects.all().order_by('-applied_on')
+        queryset = DogAdoption.objects.all()
         application = get_object_or_404(queryset, id=post_id)
         context = {
             'application': application
