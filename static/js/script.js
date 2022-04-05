@@ -14,7 +14,7 @@ let dropDownLinks = Array.from(document.getElementsByClassName("drop-down-link")
 
 let menuOpen = false;
 
-let linkOpen = false
+let linkOpen = Boolean
 
 // Function for opening and closing the mobile hamburger
 
@@ -24,6 +24,7 @@ menuBtn.addEventListener("click", () => {
         menuBtn.classList.add("open")
         navList.classList.add("show", "show-ul")
         menuOpen = true;
+        linkOpen = false;
     } else {
         menuBtn.classList.remove("open", "show-ul")
         navList.classList.remove("show")
@@ -73,7 +74,7 @@ dropDownLinks.forEach(dropDownLink => {
     })
 })
 
-// Event listener for whn the logo is hovered
+// Event listener for when the logo is hovered
 
 logoDiv.addEventListener("mouseenter", function (event) {
     logo.classList.add('logo-rotate')
