@@ -14,7 +14,7 @@ let dropDownLinks = Array.from(document.getElementsByClassName("drop-down-link")
 
 let menuOpen = false;
 
-let linkOpen = Boolean
+let linkOpen = false
 
 // Function for opening and closing the mobile hamburger
 
