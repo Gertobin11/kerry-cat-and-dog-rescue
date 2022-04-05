@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<main class="form-section">
+    <div class="post-form">
+        
+        <div class="blog-title">
+            <h1>{{ application.name }}</h1>
+            <hr>
+            <br>
+            <br>
+            <p><small>Email:</small> {{ application.email }}</p>
+            <br>
+            <p><small>Phone:</small> {{ application.phone }}</p>
+            <br>
+            <p><small>Applied on:</small> {{ application.applied_on }}</p>
+            <br>
+            <p><small>Address:</small> {{ application.address }}</p>
+            <br>
+            <p><small>County:</small> {{ application.county }}</p>
+            <br>
+            <p><small>Eircode:</small> {{ application.eircode }}</p>
+            <br>
+            <p><small>Homeowner:</small> {{ application.homeowner }}</p>
+            <br>
+            <p><small>Accomodation type:</small> {{ application.accomodation_type }}</p>
+            <br>
+            <p><small>Number of people in the address:</small> {{ application.people_living_address }}</p>
+            <br>
+            <p><small>Age Bracket of people:</small> {{ application.people_age }}</p>
+            <br>
+            <p><small>Children At the Addess:</small> {{ application.children_at_address }}</p>
+            <br>
+            <p><small>Ages of children:</small> {{ application.childrens_ages }}</p>
+            <br>
+            <p><small>Allergies:</small> {{ application.allergies }}</p>
+            <br>
+            <p><small>Reason for dog:</small> {{ application.reason_for_dog }}</p>
+            <br>
+            <p><small>Looking for specific dog:</small> {{ application.specific_dog }}</p>
+            <br>
+            <p><small>Name & Breed:</small> {{ application.name_breed }}</p>
+            <br>
+            <p><small>Indoor or Outdoor:</small> {{application.indoor_outdoor }}</p>
+            <br>
+            <p><small>Size of dog:</small> {{ application.size_of_dog }}</p>
+            <br>
+            <p><small>Age of dog:</small> {{ application.age_of_dog }}</p>
+            <br>
+            <p><small>Hours dog left alone:</small> {{ application.dog_hours_alone }}</p>
+            <br>
+            <p><small>Other Dogs:</small> {{ application.other_dogs }}</p>
+            <br>
+            <p><small>Neutered:</small> {{ application.neutered }}</p>
+            <br>
+            <p><small>Other Animals:</small> {{ application.other_animals }}</p>
+        </div>
+        <div class="blog-content">
+        
+        </div>
+    </div>
+</main>
+{% endblock %}

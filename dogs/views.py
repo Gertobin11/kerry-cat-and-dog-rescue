@@ -1,7 +1,9 @@
 from django.shortcuts import render
-from django.views import generic
+from django.views import generic, View
 from django.views.generic.edit import CreateView
 from django.contrib.messages.views import SuccessMessageMixin
+from django.shortcuts import get_object_or_404
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from blog.models import Post
 from .models import DogAdoption
 from .forms import DogAdoptionForm
@@ -15,6 +17,29 @@ class DogAdoptionView(SuccessMessageMixin, CreateView):
     template_name = 'dog-adoption.html'
     success_message = ('Your Application made through %(email)s was'
                        ' uploaded successfully')
+
+
+class DisplaySubmittedForms(PermissionRequiredMixin, generic.ListView):
+    """ Class to display all the completed user forms """
+    permission_required = "dogadoption.change_dogadoption"
+    model = DogAdoption
+    queryset = DogAdoption.objects.all()
+    paginate_by = 6
+    template_name = 'dog-completed-forms.html'
+
+
+class FormDetailView(PermissionRequiredMixin, View):
+    """ Class to handle displaying the applications made """
+    permission_required = "dogadoption.change_dogadoption"
+    def get(self, request, post_id, *args, **kwargs):
+        """ View to display an individual appication """
+        queryset = DogAdoption.objects.all()
+        application = get_object_or_404(queryset, id=post_id)
+        context = {
+            'application': application
+        }
+        template = 'dog-form-details.html'
+        return render(request, template, context)
 
 
 class DogView(generic.ListView):
